@@ -17,30 +17,44 @@ a {
 }
 
 .zeleniy {
-    display: flex;
-    flex-direction: column;
+    /*1. зачем следующие 2 правила?*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
 }
 
 .zeleniy__first_half {
-    height: 237px;
+    /*следующее правило строго ограничивает высоту блока. конкретнов этом случае это не приведёт к непридвиденным последствиям, но в целом это плохая практика, тк это лишает вёрстку "подвижности". сейчас возможно это непонятно, но с опытом ты приноровишься*/
+    /*height: 237px;*/
     margin-bottom: 56px;
     display: flex;
+    /*в данном случае это лишнее свойство, тк ты задала отступ у левого элемента(zeleniy__zabota_wrap) и следующее правило по сути ни как не влияет на позиционирование*/
     justify-content: space-between;
 }
 
+/*тут лучше обозначит ширину блока в пикселях. это позволит тексту внутри блока расположиться так же как и в макете*/
 .zeleniy__zabota_wrap {
     position: relative;
     width: 100%;
     margin-right: 105px;
+    /*1. зачем следующие 2 правила?*/
     display: flex;
     flex-direction: column;
 }
 
 .zeleniy__zabota {
+    /*я так полагаю что у тебя были проблемы с тем что б сделать этот шильдик не на всю ширину блока*/
+    /*и поэтому ты применила сделующее правило. этого можно добиться по-другому*/
     position: absolute;
+    /*убери предыдущее свойство а в слудующем попробуй значение inline-flex*/
+    /*это сочетание значений flex и inline-block*/
+    /*в чём логика: блочные элементы занимают всю ширину предоставленного места. если нам нужно что бы блок оставался блочного типа*/
+    /*но при этом по ширине был подвижным, мы присваиваем ему свойсто inline-block. но нам нужно ещё свойство flex*/
+    /*для таких случаев есть комбинация inline-flex*/
     display: flex;
+    /*это свойство тоже ни на что не влияет, попробуй отключить его*/
     justify-content: center;
     background-color: #F0F3FA;
+    /*так можно, но обычно радиус делают по высоте самого блока. но это уже вопрос просто красоты кода. не существенно*/
     border-radius: 999px;
     padding: 11px 14px;
     margin-bottom: 16px;
@@ -58,12 +72,13 @@ a {
 }
 
 .zeleniy__title {
-font-weight: 700;
-font-size: 48px;
+    font-weight: 700;
+    font-size: 48px;
 }
 
 .zeleniy__description_wrap {
     position: relative;
+    /*0_о мне всё таки интересно узнать, зачем ты добавляешь эти свойста*/
     display: flex;
     flex-direction: column;
 }
@@ -76,8 +91,10 @@ font-size: 48px;
 }
 
 .zeleniy__description_btn_wrap {
+    /*2. почему тут решила выбрать абсолютное позиционирование?*/
     position: absolute;
     bottom: 0;
+    /*3. для чего это свойство?*/
     display: flex;
 }
 
@@ -87,6 +104,7 @@ font-size: 48px;
     line-height: 18px;
     color: white;
     background-color: #EE3524;
+    /*вот тут по лучше получилось*/
     border-radius: 40px;
     padding: 19px 24px;
 }
