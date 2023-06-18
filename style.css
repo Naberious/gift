@@ -11,6 +11,25 @@ a {
     text-decoration: none;
 }
 
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.nav__first_half {
+
+}
+
+.nav__item {
+
+}
+
+.nav__second_half {
+
+}
+
 .container {
     width: 1280px;
     margin: 0 auto;
